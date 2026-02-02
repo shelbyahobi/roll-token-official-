@@ -1,0 +1,23 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Environment Variables (CRITICAL)
+.env
+.env.local
+.env.*
+
+# Dependencies
+node_modules/
+
+# Build Outputs
+dist/
+dist-ssr/
+artifacts/
+cache/
+coverage/
+typechain/
+typechain-types/
+
+# Hardhat
+hardhat.config.js.backup
