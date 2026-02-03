@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import SeedSale from './components/SeedSale';
 import Transparency from './components/Transparency';
 import BlueprintModal from './components/BlueprintModal';
+import EcosystemPreview from './components/EcosystemPreview';
 
 function App() {
     const [showBlueprint, setShowBlueprint] = useState(false);
@@ -69,6 +70,7 @@ function App() {
 
                     <div className="container mx-auto px-4 py-20 space-y-24">
                         <SeedSale />
+                        <EcosystemPreview />
                         <Transparency />
                     </div>
                 </main>
