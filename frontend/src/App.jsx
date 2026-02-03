@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import SeedSale from './components/SeedSale';
 import Transparency from './components/Transparency';
 import BlueprintModal from './components/BlueprintModal';
-import EcosystemPreview from './components/EcosystemPreview';
+import ColonyDashboard from './components/ColonyDashboard';
 
 function App() {
     const [showBlueprint, setShowBlueprint] = useState(false);
@@ -52,9 +52,6 @@ function App() {
                                 <a href="https://x.com/roll_token" target="_blank" className="flex items-center gap-2 hover:text-beetle-gold hover:scale-105 transition-all">
                                     <span>𝕏</span> Twitter
                                 </a>
-                                <a href="#" onClick={(e) => { e.preventDefault(); setShowBlueprint(true); }} className="flex items-center gap-2 hover:text-beetle-gold hover:scale-105 transition-all">
-                                    <span>📸</span> Instagram
-                                </a>
                                 <button onClick={() => setShowBlueprint(true)} className="flex items-center gap-2 hover:text-beetle-gold hover:scale-105 transition-all cursor-pointer">
                                     <span>📄</span> Blueprint
                                 </button>
@@ -70,7 +67,7 @@ function App() {
 
                     <div className="container mx-auto px-4 py-20 space-y-24">
                         <SeedSale />
-                        <EcosystemPreview />
+                        <ColonyDashboard />
                         <Transparency />
                     </div>
                 </main>
@@ -85,7 +82,6 @@ function App() {
                         </p>
                         <div className="flex justify-center gap-8 mb-8">
                             <a href="https://x.com/roll_token" target="_blank" className="text-gray-400 hover:text-beetle-gold transition-colors">Twitter (X)</a>
-                            <a href="https://instagram.com/ROLLToken" target="_blank" className="text-gray-400 hover:text-beetle-gold transition-colors">Instagram</a>
                             <a href="https://t.me/rolltoken" target="_blank" className="text-gray-400 hover:text-beetle-gold transition-colors">Telegram</a>
                             <a href="#" className="text-gray-400 hover:text-beetle-gold transition-colors">Etherscan</a>
                         </div>

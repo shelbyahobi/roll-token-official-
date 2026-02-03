@@ -135,6 +135,21 @@ contract ROLLToken is ERC20, Ownable, ReentrancyGuard {
         emit ExcludedFromLimits(account, excluded);
     }
 
+    // Audit Fix: Ability to update wallets (e.g., move to Multi-Sig)
+    function setMarketingWallet(address _marketingWallet) external onlyOwner {
+        require(_marketingWallet != address(0), "Invalid address");
+        marketingWallet = _marketingWallet;
+        excludeFromFees(_marketingWallet, true);
+        excludeFromLimits(_marketingWallet, true);
+    }
+
+    function setShopFundWallet(address _shopFundWallet) external onlyOwner {
+        require(_shopFundWallet != address(0), "Invalid address");
+        shopFundWallet = _shopFundWallet;
+        excludeFromFees(_shopFundWallet, true);
+        excludeFromLimits(_shopFundWallet, true);
+    }
+
     function _update(
         address from,
         address to,

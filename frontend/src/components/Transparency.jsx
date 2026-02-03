@@ -45,73 +45,60 @@ const WalletRow = ({ label, address, delay }) => {
 
 export default function Transparency() {
     return (
-        <section className="py-20 relative overflow-hidden">
-            <div className="container mx-auto px-4 z-10 relative">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Total Transparency</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
-                        We don't hide. Monitor our marketing spend, shop procurement, and liquidity in real-time.
-                        This is the <span className="text-beetle-gold">Dung Beetle Promise</span>.
+        <section className="py-20 bg-black/50 backdrop-blur-sm border-t border-white/5 relative overflow-hidden">
+
+            {/* Decorative Background */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-beetle-green/5 rounded-full blur-[100px] animate-pulse"></div>
+
+            <div className="container mx-auto px-4 relative z-10">
+
+                {/* Header */}
+                <div className="text-center max-w-4xl mx-auto mb-16">
+                    <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                        Built to Last. <span className="text-beetle-gold">Rolled to Perfection.</span>
+                    </h2>
+                    <p className="text-gray-400 text-lg leading-relaxed">
+                        Most tokens are built on hype; $ROLL is built on labor. Nature’s hardest worker, the Dung Beetle, doesn't wait for luck—it takes what others discard and rolls it into a masterpiece.
+                        We’ve replaced empty promises with hard-coded stability, ensuring the community has a fortress, not a tent.
                     </p>
-                </motion.div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-beetle-gold/10 rounded-full blur-3xl"></div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    {/* Wallets */}
+                    <h3 className="text-2xl font-bold text-white mb-6">Community & Docs</h3>
+
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                            Official Wallets
-                        </h3>
-                        <WalletRow label="Marketing Fund (3%)" address="0x0CFeCd2A660C342B4E45196fF868D0EC5e555e69" delay={0.1} />
-                        <WalletRow label="Shop Inventory (2%)" address="0x0CFeCd2A660C342B4E45196fF868D0EC5e555e69" delay={0.2} />
-                        <WalletRow label="Seed Sale Contract" address="0x4D9c1cCA15fAB71FF56A51768DA2B85716b38c9f" delay={0.3} />
-                    </div>
-
-                    {/* Links */}
-                    <div className="bg-beetle-green/20 border border-beetle-green/30 p-8 rounded-3xl relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-beetle-gold/10 rounded-full blur-3xl"></div>
-
-                        <h3 className="text-2xl font-bold text-white mb-6">Community & Docs</h3>
-
-                        <div className="space-y-4">
-                            <a href="#" className="block group">
-                                <div className="flex justify-between items-center p-4 bg-black/40 rounded-xl border border-white/5 group-hover:border-beetle-gold/50 transition-all">
-                                    <div className="flex items-center gap-3">
-                                        <span className="text-2xl">📢</span>
-                                        <span className="text-white font-bold group-hover:text-beetle-gold transition-colors">Telegram Channel</span>
-                                    </div>
-                                    <span className="text-gray-500 group-hover:translate-x-1 transition-transform">→</span>
+                        <a href="#" className="block group">
+                            <div className="flex justify-between items-center p-4 bg-black/40 rounded-xl border border-white/5 group-hover:border-beetle-gold/50 transition-all">
+                                <div className="flex items-center gap-3">
+                                    <span className="text-2xl">📢</span>
+                                    <span className="text-white font-bold group-hover:text-beetle-gold transition-colors">Telegram Channel</span>
                                 </div>
-                            </a>
+                                <span className="text-gray-500 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
 
-                            <a href="#" className="block group">
-                                <div className="flex justify-between items-center p-4 bg-black/40 rounded-xl border border-white/5 group-hover:border-beetle-gold/50 transition-all">
-                                    <div className="flex items-center gap-3">
-                                        <span className="text-2xl">📄</span>
-                                        <span className="text-white font-bold group-hover:text-beetle-gold transition-colors">Technical Blueprint</span>
-                                    </div>
-                                    <span className="text-gray-500 group-hover:translate-x-1 transition-transform">→</span>
+                        <a href="#" className="block group">
+                            <div className="flex justify-between items-center p-4 bg-black/40 rounded-xl border border-white/5 group-hover:border-beetle-gold/50 transition-all">
+                                <div className="flex items-center gap-3">
+                                    <span className="text-2xl">📄</span>
+                                    <span className="text-white font-bold group-hover:text-beetle-gold transition-colors">Technical Blueprint</span>
                                 </div>
-                            </a>
+                                <span className="text-gray-500 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
 
-                            <a href="#" className="block group">
-                                <div className="flex justify-between items-center p-4 bg-black/40 rounded-xl border border-white/5 group-hover:border-beetle-gold/50 transition-all">
-                                    <div className="flex items-center gap-3">
-                                        <span className="text-2xl">🛍️</span>
-                                        <span className="text-white font-bold group-hover:text-beetle-gold transition-colors">Future Shop Preview</span>
-                                    </div>
-                                    <span className="text-gray-500 group-hover:translate-x-1 transition-transform">→</span>
+                        <a href="#" className="block group">
+                            <div className="flex justify-between items-center p-4 bg-black/40 rounded-xl border border-white/5 group-hover:border-beetle-gold/50 transition-all">
+                                <div className="flex items-center gap-3">
+                                    <span className="text-2xl">🛍️</span>
+                                    <span className="text-white font-bold group-hover:text-beetle-gold transition-colors">Future Shop Preview</span>
                                 </div>
-                            </a>
-                        </div>
+                                <span className="text-gray-500 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+        </section >
     )
 }
