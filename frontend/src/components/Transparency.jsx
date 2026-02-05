@@ -98,7 +98,6 @@ export default function Transparency() {
                     </div>
                 </div>
             </div>
-        </div>
-        </section >
+        </section>
     )
 }
