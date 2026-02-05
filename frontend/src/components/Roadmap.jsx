@@ -2,28 +2,28 @@ import { motion } from 'framer-motion';
 
 const phases = [
     {
-        title: "Phase 1: The Nest",
-        subtitle: "Foundation & Security",
+        title: "Phase 1: The Burrowing",
+        subtitle: "Foundation",
         status: "current",
-        items: ["Contract Audit (Passed)", "Seed Round (Live)", "Community Building", "DApp v1 Launch"]
+        items: ["Smart Contract Deployment", "Community Building (Telegram/X)", "Vercel-to-Custom Domain", "Seed Round (Live)"]
     },
     {
-        title: "Phase 2: The Roll",
-        subtitle: "Launch & Growth",
+        title: "Phase 2: The First Roll",
+        subtitle: "Launch",
         status: "upcoming",
-        items: ["PancakeSwap Listing", "Liquidity Locked (1 Year)", "CoinGecko Listing", "Marketing Campaign"]
+        items: ["Fair Launch", "Liquidity Locking (1 Year)", "Off-Grid Gear Partnerships", "CoinGecko Listing"]
     },
     {
-        title: "Phase 3: The Flight",
-        subtitle: "Utility & Ecosystem",
+        title: "Phase 3: The Colony Gate",
+        subtitle: "Utility",
         status: "upcoming",
-        items: ["Colony Vault Opens", "Merch Shop Live", "Partner Discounts", "Governance Multi-Sig"]
+        items: ["Gated Dashboard Launch", "Live Gear Discounts", "Verified Holder Access", "Governance Multi-Sig"]
     },
     {
-        title: "Phase 4: The Swarm",
-        subtitle: "Expansion",
+        title: "Phase 4: Physical Expansion",
+        subtitle: "Real World",
         status: "upcoming",
-        items: ["Cross-Chain Bridge", "DAO Voting", "10,000+ Holders", "CEX Listings"]
+        items: ["Shop Fund Deployment", "Sponsored Off-Grid Projects", "Community Workshops", "CEX Listings"]
     }
 ];
 

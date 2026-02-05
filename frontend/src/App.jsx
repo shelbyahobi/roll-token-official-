@@ -6,7 +6,6 @@ import Transparency from './components/Transparency';
 import BlueprintModal from './components/BlueprintModal';
 import ColonyDashboard from './components/ColonyDashboard';
 import Roadmap from './components/Roadmap';
-import Roadmap from './components/Roadmap';
 
 function App() {
     const [showBlueprint, setShowBlueprint] = useState(false);

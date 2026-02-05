@@ -35,69 +35,72 @@ export default function BlueprintModal({ isOpen, onClose }) {
                     {/* Content */}
                     <div className="p-8 space-y-12">
 
-                        {/* 1. Architecture Overview */}
+                        {/* 1. Executive Summary */}
                         <section>
-                            <h3 className="text-xl font-bold text-beetle-gold mb-4 flex items-center gap-2">
-                                <span>🏗️</span> Progressive Launch System
-                            </h3>
+                            <h3 className="text-xl font-bold text-beetle-gold mb-3">1. Executive Summary</h3>
                             <p className="text-gray-300 leading-relaxed">
-                                To ensure fair distribution and sustainable growth, we are launching in **3 Progressive Stages**.
-                                We are currently in **Stage 1 (Seed)**.
+                                Modern infrastructure is fragile. <strong>$ROLL (Dung Beetle)</strong> is a decentralized protocol designed to fund, facilitate, and discount the transition to an off-grid lifestyle.
+                                By combining "hard-coded" smart contract security with a real-world marketplace for self-sufficiency gear, $ROLL provides a hedge against inflation and system failure.
                             </p>
-                            <div className="grid md:grid-cols-3 gap-4 mt-6">
-                                <div className="p-4 rounded-xl bg-beetle-gold/20 border border-beetle-gold/50 relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 bg-beetle-gold text-black text-xs font-bold px-2 py-1">LIVE</div>
-                                    <div className="font-bold text-white mb-2">Stage 1: Seed</div>
-                                    <div className="text-sm text-gray-400">Lowest Entry Price. Funds 100% Liquidity.</div>
+                        </section>
+
+                        {/* 2. The Metaphor */}
+                        <section>
+                            <h3 className="text-xl font-bold text-beetle-gold mb-3">2. The Metaphor: Why the Dung Beetle?</h3>
+                            <p className="text-gray-300 leading-relaxed">
+                                The Dung Beetle is nature’s most resilient engineer. It thrives in harsh conditions, building its world from what others ignore.
+                                $ROLL adopts this philosophy: we build a solid, <strong>"un-ruggable" foundation (The Ball)</strong> and roll it toward total independence (The Colony).
+                            </p>
+                        </section>
+
+                        {/* 3. The Utility */}
+                        <section>
+                            <h3 className="text-xl font-bold text-beetle-gold mb-4">3. The Utility: Gated Marketplace</h3>
+                            <p className="text-gray-400 mb-4">The $ROLL token is the "Membership Card" for our Off-Grid Shop.</p>
+                            <div className="space-y-3">
+                                <div className="p-4 bg-white/5 border border-white/5 rounded-xl flex justify-between items-center">
+                                    <div>
+                                        <span className="text-beetle-gold font-bold block">Tier 1 (Scout)</span>
+                                        <span className="text-sm text-gray-400">Holds 100,000 $ROLL</span>
+                                    </div>
+                                    <div className="font-bold text-white">5% Discount</div>
                                 </div>
-                                <div className="p-4 rounded-xl bg-white/5 border border-white/5 opacity-50">
-                                    <div className="font-bold text-white mb-2">Stage 2: Early</div>
-                                    <div className="text-sm text-gray-500">+10% Price Increase. Finalizing Marketing budget.</div>
+                                <div className="p-4 bg-white/5 border border-white/5 rounded-xl flex justify-between items-center">
+                                    <div>
+                                        <span className="text-beetle-gold font-bold block">Tier 2 (Guardian)</span>
+                                        <span className="text-sm text-gray-400">Holds 1,000,000 $ROLL</span>
+                                    </div>
+                                    <div className="font-bold text-white">15% Discount on Gear</div>
                                 </div>
-                                <div className="p-4 rounded-xl bg-white/5 border border-white/5 opacity-50">
-                                    <div className="font-bold text-white mb-2">Stage 3: DEX Launch</div>
-                                    <div className="text-sm text-gray-500">Public Listing on PancakeSwap. Liquidity Locked.</div>
+                                <div className="p-4 bg-white/5 border border-white/5 rounded-xl flex justify-between items-center">
+                                    <div>
+                                        <span className="text-beetle-gold font-bold block">Tier 3 (Elder)</span>
+                                        <span className="text-sm text-gray-400">Holds 5,000,000 $ROLL</span>
+                                    </div>
+                                    <div className="font-bold text-white">25% Discount + Voting Rights</div>
                                 </div>
                             </div>
                         </section>
 
-                        {/* 2. Safety Mechanisms */}
+                        {/* 4. Security Protocol */}
                         <section>
-                            <h3 className="text-xl font-bold text-beetle-gold mb-4 flex items-center gap-2">
-                                <span>🛡️</span> Safety Mechanisms
-                            </h3>
-                            <ul className="space-y-4">
-                                <li className="flex gap-4">
-                                    <div className="min-w-[4px] bg-green-500 rounded-full"></div>
-                                    <div>
-                                        <h4 className="font-bold text-white">Refund Guarantee</h4>
-                                        <p className="text-sm text-gray-400 mt-1">
-                                            The Seed Sale contract has a built-in <code className="bg-white/10 px-1 rounded">softCap</code> check.
-                                            If we do not raise the minimum liquidity, the contract allows YOU to claim a full refund.
-                                            The owner cannot withdraw funds unless the Soft Cap is hit.
-                                        </p>
-                                    </div>
+                            <h3 className="text-xl font-bold text-beetle-gold mb-4">4. "No-Rug" Security Protocol</h3>
+                            <ul className="grid md:grid-cols-2 gap-4">
+                                <li className="bg-black/40 p-4 rounded-xl border border-white/10">
+                                    <div className="font-bold text-white mb-1">2-Day Transparency Buffer</div>
+                                    <p className="text-sm text-gray-400">48-hour timelock on all administrative security actions.</p>
                                 </li>
-                                <li className="flex gap-4">
-                                    <div className="min-w-[4px] bg-green-500 rounded-full"></div>
-                                    <div>
-                                        <h4 className="font-bold text-white">Code-Enforced Liquidity Lock</h4>
-                                        <p className="text-sm text-gray-400 mt-1">
-                                            Once the Liquidity Pool is created, the LP tokens are sent to <code className="bg-white/10 px-1 rounded">LiquidityLocker.sol</code>.
-                                            This contract has a <code className="bg-white/10 px-1 rounded">lockTime</code> (1 year).
-                                            The <code className="bg-white/10 px-1 rounded">withdraw()</code> function literally reverts if called before the unlock date.
-                                        </p>
-                                    </div>
+                                <li className="bg-black/40 p-4 rounded-xl border border-white/10">
+                                    <div className="font-bold text-white mb-1">Reentrancy Guard</div>
+                                    <p className="text-sm text-gray-400">Protected against common DeFi drainage exploits.</p>
                                 </li>
-                                <li className="flex gap-4">
-                                    <div className="min-w-[4px] bg-green-500 rounded-full"></div>
-                                    <div>
-                                        <h4 className="font-bold text-white">Anti-Sniper Protection</h4>
-                                        <p className="text-sm text-gray-400 mt-1">
-                                            For the first 100 blocks (~5 minutes), buys are limited to 1% of supply.
-                                            This prevents bots from buying the entire supply instantly at launch.
-                                        </p>
-                                    </div>
+                                <li className="bg-black/40 p-4 rounded-xl border border-white/10">
+                                    <div className="font-bold text-white mb-1">Ownership Transition</div>
+                                    <p className="text-sm text-gray-400">Contract moved to Multi-Sig or Renounced at launch.</p>
+                                </li>
+                                <li className="bg-black/40 p-4 rounded-xl border border-white/10">
+                                    <div className="font-bold text-white mb-1">Liquidity Lock</div>
+                                    <p className="text-sm text-gray-400">1-Year hard-coded lock via LiquidityLocker.sol.</p>
                                 </li>
                             </ul>
                         </section>
