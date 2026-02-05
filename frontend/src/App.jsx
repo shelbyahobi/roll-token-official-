@@ -5,6 +5,8 @@ import SeedSale from './components/SeedSale';
 import Transparency from './components/Transparency';
 import BlueprintModal from './components/BlueprintModal';
 import ColonyDashboard from './components/ColonyDashboard';
+import Roadmap from './components/Roadmap';
+import Roadmap from './components/Roadmap';
 
 function App() {
     const [showBlueprint, setShowBlueprint] = useState(false);
@@ -68,6 +70,7 @@ function App() {
                     <div className="container mx-auto px-4 py-20 space-y-24">
                         <SeedSale />
                         <ColonyDashboard />
+                        <Roadmap />
                         <Transparency />
                     </div>
                 </main>
