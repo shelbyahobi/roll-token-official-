@@ -13,6 +13,12 @@ const ERC20_ABI = [
     },
 ];
 
+// ABI for Seed Sale Deposit Check
+const SEED_SALE_ABI = [
+    { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "deposits", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }
+];
+const SEED_SALE_ADDRESS = "0x4D9c1cCA15fAB71FF56A51768DA2B85716b38c9f";
+
 // Placeholder Address - UPDATE AFTER DEPLOYMENT
 const TOKEN_ADDRESS = "0x0000000000000000000000000000000000000000";
 
@@ -21,8 +27,8 @@ export default function ColonyDashboard() {
     const [hasAccess, setHasAccess] = useState(false);
     const [balance, setBalance] = useState(0n);
 
-    // Wagmi Hook to Read Balance
-    const { data, isError, isLoading } = useContractRead({
+    // Check Token Balance
+    const { data: tokenBalance } = useContractRead({
         address: TOKEN_ADDRESS,
         abi: ERC20_ABI,
         functionName: 'balanceOf',
@@ -31,14 +37,29 @@ export default function ColonyDashboard() {
         watch: true,
     });
 
+    // Check Seed Sale Deposit
+    const { data: seedDeposit } = useContractRead({
+        address: SEED_SALE_ADDRESS,
+        abi: SEED_SALE_ABI,
+        functionName: 'deposits',
+        args: [address],
+        enabled: isConnected && !!address,
+        watch: true,
+    });
+
     useEffect(() => {
-        if (data) {
-            setBalance(data);
-            if (data > 0n) setHasAccess(true);
+        const bal = tokenBalance ? BigInt(tokenBalance) : 0n;
+        const dep = seedDeposit ? BigInt(seedDeposit) : 0n;
+
+        setBalance(bal);
+
+        // Access Rule: Has Tokens OR Has Contributed to Seed
+        if (bal > 0n || dep > 0n) {
+            setHasAccess(true);
+        } else {
+            setHasAccess(false);
         }
-        // For demo purposes if contract not deployed, we can simulate access slightly differently
-        // or just leave it locked to drive the "Buy" point.
-    }, [data]);
+    }, [tokenBalance, seedDeposit]);
 
     // Visual Variants
     const containerVariants = {

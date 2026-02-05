@@ -14,39 +14,18 @@ export default function SeedSale() {
     const { isConnected } = useAccount();
     const [amount, setAmount] = useState('0.1');
 
-    // Reads
-    const { data: totalRaised } = useContractRead({
+    // Read User Deposit
+    const { data: userDeposit } = useContractRead({
         address: SEED_SALE_ADDRESS,
         abi: SEED_SALE_ABI,
-        functionName: 'totalRaised',
+        functionName: 'deposits',
+        args: [address],
         watch: true,
+        enabled: isConnected && !!address
     });
 
-    const { data: hardCap } = useContractRead({
-        address: SEED_SALE_ADDRESS,
-        abi: SEED_SALE_ABI,
-        functionName: 'hardCap',
-    });
-
-    // Writes
-    const { config } = usePrepareContractWrite({
-        address: SEED_SALE_ADDRESS,
-        abi: SEED_SALE_ABI,
-        functionName: 'deposit',
-        value: parseEther(amount || '0'),
-        enabled: Boolean(amount)
-    });
-
-    const { write, data, isLoading } = useContractWrite(config);
-
-    const { isLoading: isTxLoading, isSuccess } = useWaitForTransaction({
-        hash: data?.hash,
-    });
-
-    // Calculate Progress
-    const raised = totalRaised ? parseFloat(formatEther(totalRaised)) : 0;
-    const cap = hardCap ? parseFloat(formatEther(hardCap)) : 100; // default 100
-    const percent = Math.min((raised / cap) * 100, 100);
+    const userBnB = userDeposit ? parseFloat(formatEther(userDeposit)) : 0;
+    const pendingRoll = (userBnB * 5000000).toLocaleString(); // 5M per BNB
 
     return (
         <div className="max-w-4xl mx-auto bg-beetle-green/30 backdrop-blur-lg border border-beetle-gold/30 rounded-3xl p-8 md:p-12 shadow-2xl">
@@ -73,6 +52,29 @@ export default function SeedSale() {
                             ></div>
                         </div>
                     </div>
+
+                    {/* --- NEW: User Allocation Display --- */}
+                    {isConnected && userBnB > 0 && (
+                        <div className="bg-white/5 border border-beetle-gold/30 rounded-xl p-4 animate-fade-in">
+                            <h4 className="text-beetle-gold font-bold mb-2 flex items-center gap-2">
+                                <span>🎉</span> Your Reserved Allocation
+                            </h4>
+                            <div className="flex justify-between items-end">
+                                <div>
+                                    <div className="text-xs text-gray-400">Contributed</div>
+                                    <div className="text-white font-mono">{userBnB} BNB</div>
+                                </div>
+                                <div className="text-right">
+                                    <div className="text-xs text-gray-400">Pending Claim</div>
+                                    <div className="text-2xl font-black text-white text-shadow-glow">{pendingRoll} ROLL</div>
+                                </div>
+                            </div>
+                            <div className="mt-3 text-xs text-gray-500 bg-black/30 p-2 rounded">
+                                *Tokens will be claimable here exactly 24 hours after the HardCap is hit (or Sale Ends).
+                            </div>
+                        </div>
+                    )}
+
                 </div>
 
                 <div className="flex-1 bg-black/40 rounded-2xl p-6 border border-white/5">
